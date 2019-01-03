@@ -84,3 +84,17 @@ BlazeLayout.setRoot('body');
 ~~~
 
 You can set any CSS selector, DOM Node, or jQuery object as the root.
+
+### Reset Blaze Layout
+
+Occasionally you may run into a situation where you need to re-render a layout, such as displaying a post on /post/:id and the user attempts to click to another.
+
+~~~js
+FlowRouter.route('/page/:section',{
+  name:'page',
+  action: function(){
+    BlazeLayout.reset() #will force the template to re render.
+    BlazeLayout.render('MainLayout', {main: 'Page'})
+  }
+})
+~~~
